@@ -19,10 +19,23 @@ The solution is designed to handle large datasets while keeping APIs fast and re
 
 ---
 
+src/
+├── config/ # Database & Redis configuration
+├── controllers/ # API request handlers
+├── services/ # Business logic & integrations
+├── middlewares/ # Error handling & request processing
+├── utils/ # Helpers (cache keys, etc.)
+├── scripts/ # Database seed scripts
+└── server.ts # Application entry point
+
 ## Setup Instructions
 
 ### 1. Install dependencies
 npm install
+
+Run the server
+npm run dev
+
 
 ### 2. Environment variables
 Create a `.env` file with the following:
