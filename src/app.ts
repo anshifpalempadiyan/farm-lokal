@@ -2,6 +2,10 @@ import express from "express";
 import getAccessToken from "./services/oauth.service"
 import externalApiA from "./services/externalApiA.service";
 import webhookHandler from "./modules/webhook.controller";
+import getProducts from "./controllers/products.controller";
+import errorHandler from "./middlewares/error.middleware";
+
+
 
 const app = express();
 
@@ -31,5 +35,9 @@ app.get("/test-external-a", async ( req , res ) => {
 })
 
 app.post("/webhook/external-b", webhookHandler)
+
+app.get("/products", getProducts)
+
+app.use(errorHandler)
 
 export default app;
