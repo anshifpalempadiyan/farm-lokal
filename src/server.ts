@@ -3,6 +3,7 @@ dotenv.config();
 
 import app from "./app";
 import pool from "./config/db"
+import redisClient from "./config/redis";
 
 
 const PORT = process.env.PORT || 3000;
@@ -13,6 +14,8 @@ const startServer = async () => {
     console.log("MySQL connected from Node.js")
     connection.release()
 
+    await redisClient.connect()
+    
     app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
